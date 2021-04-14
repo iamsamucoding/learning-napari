@@ -16,7 +16,7 @@ def image_filepicker(filename=Path()) -> LayerDataTuple:
     return (image, {'name': 'main image'})
 
 @magicgui(call_button='Load Python Code', filename={"filter": "Python (*.py)"})
-def python_filepicker(filename=Path()):
+def custom_widget_type(filename=Path()):
     print('oioioi')
     global python_code
     python_code = filename
