@@ -27,5 +27,9 @@ with napari.gui_qt():
     viewer.window.add_dock_widget(image_filepicker, area='left')
     viewer.window.add_dock_widget(python_filepicker, area='left')
 
-    # when call the function `python_filepicker`, the lambda function is called
-    python_filepicker.called.connect(lambda event: print(python_code))
+    # When call the function `python_filepicker`, the lambda function is called.
+    # The event is an Event
+    # event.source is a FunctionGui
+    # We can get the value of a parameter from the function python_filepicker
+    # by using event.source.filename.value
+    python_filepicker.called.connect(lambda event: print(event.source.filename.value))
